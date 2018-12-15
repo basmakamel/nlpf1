@@ -40,9 +40,10 @@ module.exports.routes = {
     view: 'pages/signup',
         locals: {
         layout : 'layouts/layout.ejs'
+      }
     },
 
-},
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
