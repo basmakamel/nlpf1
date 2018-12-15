@@ -20,8 +20,29 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'GET /clients' : 'ClientController.client',
 
+  'get /intranet': {
+    view: 'pages/intranethomepage',
+    locals: {
+      layout : 'layouts/layout.ejs'
+    }
+  },
 
+  'get /login': {
+    view: 'pages/login',
+        locals: {
+        layout : 'layouts/layout.ejs'
+        }
+  },
+
+  'get /signup': {
+    view: 'pages/signup',
+        locals: {
+        layout : 'layouts/layout.ejs'
+    },
+
+},
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
