@@ -10,7 +10,6 @@
 
 module.exports.routes = {
 
-  '/': {view: 'pages/homepage'},
   /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` your home page.            *
@@ -20,6 +19,30 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+
+  '/': { view: 'pages/homepage' },
+  'GET /clients' : 'ClientController.client',
+
+  'get /intranet': {
+    view: 'pages/intranethomepage',
+    locals: {
+      layout : 'layouts/layout.ejs'
+    }
+  },
+
+  'get /login': {
+    view: 'pages/login',
+        locals: {
+        layout : 'layouts/layout.ejs'
+        }
+  },
+
+  'get /signup': {
+    view: 'pages/signup',
+        locals: {
+        layout : 'layouts/layout.ejs'
+      }
+    },
 
   'GET /hello' : 'HelloController.hellos',
   'GET /book_appt' : {view: 'pages/fill_ticket/form'},
