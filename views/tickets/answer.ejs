@@ -1,29 +1,47 @@
 <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/tickets/list_waiting">Tickets</a></li>
-        <li class="breadcrumb-item active">Répondre</li>
-    </ol>
-    <h1 class="display-4">Répondre à un ticket</h1>
-    <form method="post" action="/tickets/update/<%= ticket.id %>">
-        <div class="form-group">
-            <label for="title">Tag</label>
-            <p name="tag" class="form-control"><%= ticket.tag %></p>    
-        </div>
-        <div class="form-group">
-            <img src="data:image/png;base64,<%= ticket.image%>">
-        </div>
-        <div class="form-group">
-            <label for="body">Adresse</label>
-            <p name="address" class="form-control"><%= ticket.address %></p>
-        </div>
-        <div class="form-group">
-            <label for="body">Direction</label>
-            <p name="direction" class="form-control"><%= ticket.direction %></p>
-        </div>
-        <div class="form-group">
-            <label for="body">Commentaire</label>
-            <textarea name="admin_comment" class="form-control"><%= ticket.admin_comment %></textarea>
-        </div>
-        
-        <input type="submit" formaction="/tickets/accept/<%= ticket.id %>" value="Accepter" class="btn btn-success">
-        <input type="submit" formaction="/tickets/deny/<%= ticket.id %>" value="Refuser" class="btn btn-danger">
-    </form>
+    <li class="breadcrumb-item"><a href="/tickets/list_waiting">Tickets</a></li>
+    <li class="breadcrumb-item active">Répondre</li>
+</ol>
+<h1 class="display-4">Répondre à un ticket</h1>
+
+<form method="post" action="/tickets/update/<%= ticket.id %>">
+    <div class="form-group">
+        <input type="hidden" name="mail" value="<%= ticket.client_mail %>">   
+    </div>
+    <div class="form-group"> 
+        <label for="title">Tag</label>
+        <p name="tag" class="form-control"><%= ticket.tag %></p>
+    </div>
+    <div class="form-group">
+        <img src="data:image/png;base64,<%= ticket.image%>">
+    </div>
+    <div class="form-group">
+        <label for="body">Adresse</label>
+        <p class="form-control"><%= ticket.address %></p>
+        <input type="hidden" name="address" value="<%= ticket.address %>">
+    </div>
+    <div class="form-group">
+        <label for="body">Direction</label>
+        <p name="direction" class="form-control"><%= ticket.direction %></p>
+    </div>
+    <div class="form-group">
+        <label for="body">Commentaire</label>
+        <textarea name="admin_comment" class="form-control"><%= ticket.admin_comment %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="body">Date de début de rendez-vous</label>
+        <input type="date" name="date_start">
+    </div>
+    <input type="time" name="time_start">
+    <div class="form-group">
+        <label for="body">Date de fin de rendez-vous</label>
+        <input type="date" name="date_end">
+        <input type="time" name="time_end">
+    </div>
+
+    <<iframe src="https://calendar.google.com/calendar/embed?showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=h8bi0j1u9660pfd7g77sn6b1hg%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=Europe%2FParis" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+    <input type="submit" formaction="/tickets/accept/<%= ticket.id %>" value="Accepter" class="btn btn-success">
+    <input type="submit" formaction="/tickets/deny/<%= ticket.id %>" value="Refuser" class="btn btn-danger">
+</form>
