@@ -44,7 +44,7 @@ module.exports.routes = {
       }
     },
 
-  'GET /hello' : 'HelloController.hellos',
+ // 'GET /hello' : 'HelloController.hellos',
   'GET /book_appt' : {view: 'pages/fill_ticket/form'},
   'POST /newTicket' : 'fill_ticket/FormController.newTicket'
 
