@@ -8,7 +8,7 @@
  * https://sailsjs.com/anatomy/config/routes-js
  */
 
-module.exports.routes = {
+ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
@@ -20,6 +20,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+
   'GET /clients' : 'ClientController.client',
 
   'get /intranet': {
@@ -31,17 +32,33 @@ module.exports.routes = {
 
   'get /login': {
     view: 'pages/login',
-        locals: {
-        layout : 'layouts/layout.ejs'
-        }
+    locals: {
+      layout : 'layouts/layout.ejs'
+    }
   },
 
   'get /signup': {
     view: 'pages/signup',
-        locals: {
-        layout : 'layouts/layout.ejs'
-      }
-    },
+    locals: {
+      layout : 'layouts/layout.ejs'
+    }
+  },
+  'POST /tickets/answer/:id': {
+    controller: 'TicketsController',
+    action: 'answer',
+    skipAssets: false
+  },
+  'POST /tickets/accept/:id': {
+    controller: 'TicketsController',
+    action: 'accept',
+    skipAssets: false
+  },
+  'POST /tickets/deny/:id': {
+    controller: 'TicketsController',
+    action: 'deny',
+    skipAssets: false
+  }
+
 
 
   /***************************************************************************
