@@ -1,3 +1,9 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 <style>
   /* Styles included inline since you'll probably be deleting this page anyway */
@@ -8,25 +14,12 @@
     document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
   }, 0);
 </script>
-
 <div class="default-page">
   <div class="header">
-    <h1 id="main-title" class="container"><%= __('Clients') %></h1>
+    <h1 id="main-title" class="container"><%= __('Tickets') %></h1>
   </div>
+  <p>Ticket succesfully created!</p>
+  <p><%=dataF%></p>
 </div>
 
-
-<html>
-<head>
-  <link rel='stylesheet' href='/styles/list.css'/>
-</head>
-<body>
-<ul id="listofclients">
-  <% if(clientslist){ %>
-  <% clientslist.forEach(function(client) { %>
-  <li onclick="clickCh(this)" value="<%= client["email"] %>"> <%= client["firstname"] %> <%= client["lastname"] %> <%= client["email"] %> <td><a href="/clients/deletes/?client_email=<%= client["email"] %>">Delete</a></td>
-  </li>
-  <% }) } %>
-</ul>
-</body>
-</html>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

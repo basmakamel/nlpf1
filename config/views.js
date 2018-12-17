@@ -36,6 +36,9 @@ module.exports.views = {
   *                                                                          *
   ***************************************************************************/
 
-  layout: 'layouts/layout'
+  layout: 'layouts/layout',
+  hello: 'hello',
+  newTicket: 'pages/fill_ticket/new',
+  form: 'form'
 
 };

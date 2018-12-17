@@ -19,9 +19,21 @@
   *                                                                          *
   ***************************************************************************/
 
+
   '/': { view: 'pages/homepage' },
+<<<<<<< HEAD
 
   'GET /clients' : 'ClientController.client',
+=======
+  'GET /clients' : 'ClientController.clients',
+  'GET /clients/deletes:client_email?' : 'ClientController.deletes',
+  'GET /calendar' : 'CalendarController.calendar',
+
+  'GET /login': { view: 'login' },
+  'POST /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
+  'GET /register': { view: 'register' },
+>>>>>>> aa7d4e2699d8211ca989e74da7411097ccd74a76
 
   'get /intranet': {
     view: 'pages/intranethomepage',
@@ -30,12 +42,15 @@
     }
   },
 
+<<<<<<< HEAD
   'get /login': {
     view: 'pages/login',
     locals: {
       layout : 'layouts/layout.ejs'
     }
   },
+=======
+>>>>>>> aa7d4e2699d8211ca989e74da7411097ccd74a76
 
   'get /signup': {
     view: 'pages/signup',
@@ -60,6 +75,11 @@
   }
 
 
+  'GET /hello' : 'HelloController.hellos',
+  'GET /book_appt' : {view: 'pages/fill_ticket/form'},
+  'POST /newTicket' : 'fill_ticket/FormController.newTicket'
+
+ // 'POST  /api/v1/fill_ticket/form':                       { action: 'ticket/form' },
 
   /***************************************************************************
   *                                                                          *
