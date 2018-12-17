@@ -1,0 +1,29 @@
+<ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/tickets/list_waiting">Tickets</a></li>
+        <li class="breadcrumb-item active">Répondre</li>
+    </ol>
+    <h1 class="display-4">Répondre à un ticket</h1>
+    <form method="post" action="/tickets/update/<%= ticket.id %>">
+        <div class="form-group">
+            <label for="title">Tag</label>
+            <p name="tag" class="form-control"><%= ticket.tag %></p>    
+        </div>
+        <div class="form-group">
+            <img src="data:image/png;base64,<%= ticket.image%>">
+        </div>
+        <div class="form-group">
+            <label for="body">Adresse</label>
+            <p name="address" class="form-control"><%= ticket.address %></p>
+        </div>
+        <div class="form-group">
+            <label for="body">Direction</label>
+            <p name="direction" class="form-control"><%= ticket.direction %></p>
+        </div>
+        <div class="form-group">
+            <label for="body">Commentaire</label>
+            <textarea name="admin_comment" class="form-control"><%= ticket.admin_comment %></textarea>
+        </div>
+        
+        <input type="submit" formaction="/tickets/accept/<%= ticket.id %>" value="Accepter" class="btn btn-success">
+        <input type="submit" formaction="/tickets/deny/<%= ticket.id %>" value="Refuser" class="btn btn-danger">
+    </form>

@@ -29,6 +29,11 @@
             type: "string",
             required: true
         },
+        tag: {
+            type: "string",
+            required: true,
+            unique: true
+        },
         admin_comment: {
             type: "string",
             required: false

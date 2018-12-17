@@ -8,7 +8,7 @@
  * https://sailsjs.com/anatomy/config/routes-js
  */
 
-module.exports.routes = {
+ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
@@ -21,6 +21,10 @@ module.exports.routes = {
 
 
   '/': { view: 'pages/homepage' },
+<<<<<<< HEAD
+
+  'GET /clients' : 'ClientController.client',
+=======
   'GET /clients' : 'ClientController.clients',
   'GET /clients/deletes:client_email?' : 'ClientController.deletes',
   'GET /calendar' : 'CalendarController.calendar',
@@ -29,6 +33,7 @@ module.exports.routes = {
   'POST /login': 'AuthController.login',
   '/logout': 'AuthController.logout',
   'GET /register': { view: 'register' },
+>>>>>>> aa7d4e2699d8211ca989e74da7411097ccd74a76
 
   'get /intranet': {
     view: 'pages/intranethomepage',
@@ -37,13 +42,38 @@ module.exports.routes = {
     }
   },
 
+<<<<<<< HEAD
+  'get /login': {
+    view: 'pages/login',
+    locals: {
+      layout : 'layouts/layout.ejs'
+    }
+  },
+=======
+>>>>>>> aa7d4e2699d8211ca989e74da7411097ccd74a76
 
   'get /signup': {
     view: 'pages/signup',
-        locals: {
-        layout : 'layouts/layout.ejs'
-      }
-    },
+    locals: {
+      layout : 'layouts/layout.ejs'
+    }
+  },
+  'POST /tickets/answer/:id': {
+    controller: 'TicketsController',
+    action: 'answer',
+    skipAssets: false
+  },
+  'POST /tickets/accept/:id': {
+    controller: 'TicketsController',
+    action: 'accept',
+    skipAssets: false
+  },
+  'POST /tickets/deny/:id': {
+    controller: 'TicketsController',
+    action: 'deny',
+    skipAssets: false
+  }
+
 
  // 'GET /hello' : 'HelloController.hellos',
   'GET /book_appt' : {view: 'pages/fill_ticket/form'},
