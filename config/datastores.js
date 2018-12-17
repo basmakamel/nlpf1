@@ -15,7 +15,6 @@
 
 module.exports.datastores = {
 
-
   /***************************************************************************
   *                                                                          *
   * Your app's default datastore.                                            *
@@ -48,10 +47,10 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-     adapter: 'sails-postgresql',
-     url: 'postgres://postgres:password@localhost:5432/graffitibob',
-  },
+    adapter: 'sails-postgresql',
+    url: 'postgres://p  ostgres:password@localhost:5432/graffitibob',
 
+  },
 
 
 };

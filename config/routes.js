@@ -19,6 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+
   '/': { view: 'pages/homepage' },
   'GET /clients' : 'ClientController.clients',
   'GET /clients/deletes:client_email?' : 'ClientController.deletes',
@@ -41,9 +42,15 @@ module.exports.routes = {
     view: 'pages/signup',
         locals: {
         layout : 'layouts/layout.ejs'
+      }
     },
 
-},
+  'GET /hello' : 'HelloController.hellos',
+  'GET /book_appt' : {view: 'pages/fill_ticket/form'},
+  'POST /newTicket' : 'fill_ticket/FormController.newTicket'
+
+ // 'POST  /api/v1/fill_ticket/form':                       { action: 'ticket/form' },
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

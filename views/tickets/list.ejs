@@ -1,0 +1,19 @@
+<h1 class="display-4">Articles</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% tickets.forEach(function(ticket){ %>
+            <tr>
+                <td><%= ticket.createdAt%></td>
+                <td><%= ticket.status%></td>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
