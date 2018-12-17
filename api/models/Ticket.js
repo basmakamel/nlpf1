@@ -23,7 +23,7 @@
         image: {
             type: "ref",
             columnType: "bytea",
-            required : true
+            required : true,
         },
         status: {
             type: "string",

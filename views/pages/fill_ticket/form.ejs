@@ -36,23 +36,23 @@ For more information, see:
           <div class="invalid-feedback" v-if="formErrors.lastName">Please enter your last name.</div>
         </div>
         <div class="form-group">
-          <label for="email-address">Email address</label>
-          <input class="form-control" id="email-address" type="email"  :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" placeholder="sturgeon@example.com" autocomplete="email">
-          <div class="invalid-feedback" v-if="formErrors.emailAddress">Please enter a valid email address.</div>
+          <label for="email-address">Email address*</label>
+          <input class="form-control" id="email-address" type="email" required placeholder="sturgeon@example.com" name="email">
+          <span class="error" >Please enter a valid email address.</span>
         </div>
         <div class="form-group">
           <label for="phone">Phone #</label>
-          <input class="form-control" id="phone" type="text"  :class="[formErrors.phone ? 'is-invalid' : '']" v-model.trim="formData.phone" placeholder="0612348790" autocomplete="name" focus-first>
+          <input class="form-control" id="phone" type="text"  :class="[formErrors.phone ? 'is-invalid' : '']" v-model.trim="formData.phone" placeholder="0612348790" name="phone" focus-first>
           <div class="invalid-feedback" v-if="formErrors.phone">Please enter your phone number.</div>
         </div>
         <div class="form-group">
           <label for="address">Address</label>
-          <input class="form-control" id="address" type="text"  :class="[formErrors.address ? 'is-invalid' : '']" v-model.trim="formData.address" placeholder="12 rue Leclerc 75001 Paris" autocomplete="name" focus-first>
+          <input class="form-control" id="address" type="text"  :class="[formErrors.address ? 'is-invalid' : '']" v-model.trim="formData.address" placeholder="12 rue Leclerc 75001 Paris" name="address" focus-first>
           <div class="invalid-feedback" v-if="formErrors.address">Please enter your address.</div>
         </div>
         <div class="form-group">
           <label for="direction">Direction</label>
-          <input class="form-control" id="direction" type="text"  :class="[formErrors.direction ? 'is-invalid' : '']" v-model.trim="formData.direction" placeholder="North" autocomplete="name" focus-first>
+          <input class="form-control" id="direction" type="text"  :class="[formErrors.direction ? 'is-invalid' : '']" v-model.trim="formData.direction" placeholder="North" name="direction" focus-first>
           <div class="invalid-feedback" v-if="formErrors.direction">Please enter your phone number.</div>
         </div>
         <div class="form-group">

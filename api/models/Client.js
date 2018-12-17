@@ -32,6 +32,10 @@ module.exports = {
     password : {
       type : "string",
       required : true
+    },
+    blacklisted : {
+      type : "boolean",
+      required : true
     }
   }
 };
