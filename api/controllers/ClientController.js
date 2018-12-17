@@ -7,25 +7,22 @@
 
 module.exports = {
 
-  client: async function (req, res) {
-    var myQuery = "select email from client";
+  clients: async function (req, res) {
+    var myQuery = "select firstname, lastname, email from client where blacklisted = false";
     console.log("hello");
     var data = await sails.sendNativeQuery(myQuery);
-   // var json = JSON.parse(data);
+    return res.view('client', {clientslist : data["rows"]});
+  },
 
-    console.log(data["rows"][0]["email"]);
-    /*
-    Client.getDatastore().sendNativeQuery(myQuery, function (err, email){
-      if(err || !email.rows.length){
-
-        return res.view('client',{clientslist : "hello"});
-
-      }
-      else{
-        return res.view('client', {clientslist : data});
-      }
-    })*/
-    return res.view('client', {clientslist : data["rows"][0]["email"]});
+  deletes: async function (req, res) {
+    deletedclient = await req.param("client_email");
+    console.log("Deleted client : " + deletedclient);
+    var blacklistQuery = "UPDATE client set blacklisted = true where email = \'" + deletedclient + "\'";
+    console.log(blacklistQuery);
+    var executeblacklist = await sails.sendNativeQuery(blacklistQuery);
+    var myQuery = "select firstname, lastname, email from client where blacklisted = false";
+    var data = await sails.sendNativeQuery(myQuery);
+    return res.view('client', {clientslist : data["rows"]});
   }
 };
 

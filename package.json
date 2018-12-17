@@ -8,12 +8,20 @@
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
+    "bcrypt-nodejs": "0.0.3",
+    "dycalendarjs": "^1.2.1",
+    "fullcalendar": "^3.9.0",
     "grunt": "1.0.1",
+    "jsonwebtoken": "^8.4.0",
+    "node-google-calendar": "^1.1.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sails": "^1.1.0",
     "sails-hook-grunt": "^3.1.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^1.5.5",
-    "sails-postgresql": "^1.0.1"
+    "sails-postgresql": "^1.0.1",
+    "simple-oauth2": "^2.2.1"
   },
   "devDependencies": {
     "@sailshq/eslint": "^4.19.3"

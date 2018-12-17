@@ -20,7 +20,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /clients' : 'ClientController.client',
+  'GET /clients' : 'ClientController.clients',
+  'GET /clients/deletes:client_email?' : 'ClientController.deletes',
+  'GET /calendar' : 'CalendarController.calendar',
+
+  'GET /login': { view: 'login' },
+  'POST /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
+  'GET /register': { view: 'register' },
 
   'get /intranet': {
     view: 'pages/intranethomepage',
@@ -29,12 +36,6 @@ module.exports.routes = {
     }
   },
 
-  'get /login': {
-    view: 'pages/login',
-        locals: {
-        layout : 'layouts/layout.ejs'
-        }
-  },
 
   'get /signup': {
     view: 'pages/signup',
