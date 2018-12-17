@@ -15,7 +15,13 @@
 
 module.exports.datastores = {
 
-
+  postgres: {
+    adapter: 'sails-postgresql',
+    host: 'localhost',
+    user: 'postgres',
+    password: 'password',
+    database: 'graffitibob'
+  },
   /***************************************************************************
   *                                                                          *
   * Your app's default datastore.                                            *

@@ -10,6 +10,7 @@
 
 module.exports.routes = {
 
+  '/': {view: 'pages/homepage'},
   /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` your home page.            *
@@ -19,8 +20,12 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
 
+  'GET /hello' : 'HelloController.hellos',
+  'GET /book_appt' : {view: 'pages/fill_ticket/form'},
+  'POST /newTicket' : 'fill_ticket/FormController.newTicket'
+
+ // 'POST  /api/v1/fill_ticket/form':                       { action: 'ticket/form' },
 
   /***************************************************************************
   *                                                                          *
