@@ -26,7 +26,7 @@
   'GET /clients' : 'ClientController.clients',
   'GET /clients/deletes:client_email?' : 'ClientController.deletes',
   'GET /calendar' : 'CalendarController.calendar',
-
+   'GET /appointments' : {view : 'appointments'},
   'GET /login': { view: 'login' },
   'POST /login': 'AuthController.login',
   '/logout': 'AuthController.logout',
@@ -61,8 +61,10 @@
     skipAssets: false
   },
 
+   'POST /client': {view: 'login'},
  // 'GET /hello' : 'HelloController.hellos',
-  'GET /book_appt' : {view: 'pages/fill_ticket/form'},
+  //'GET /book_appt:client?' : {view: 'pages/fill_ticket/form'},
+   'GET /book_appt:client?' : 'fill_ticket/FormController.init',
   'POST /newTicket' : 'fill_ticket/FormController.newTicket'
 
  // 'POST  /api/v1/fill_ticket/form':                       { action: 'ticket/form' },

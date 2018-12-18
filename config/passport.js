@@ -5,29 +5,28 @@ passport.serializeUser(function(user, cb) {
   cb(null, user.id);
 });
 passport.deserializeUser(function(id, cb){
-  User.findOne({id}, function(err, user) {
+  Client.findOne({id}, function(err, user) {
     cb(err, users);
   });
 });
-
 passport.use(new LocalStrategy({
-  usernameField: 'username',
+  returnURL: 'http://example.net:3003/api/auth/google/return',
+  usernameField: 'email',
   passportField: 'password'
-}, function(username, password, cb) {
-  User.findOne({username: username}, function (err, user) {
-    if (err)
-      return cb(err);
-    if (!user)
-      return cb(null, false, {message: 'Username not found'});
-    bcrypt.compare(password, user.password, function (err, res) {
-      if (!res)
-        return cb(null, false, {message: 'Invalid Password'});
+}, function(username, password, cb){
+  Client.findOne({email: username}, function(err, user){
+    if(err) return cb(err);
+    if(!user) return cb(null, false, {message: 'Username not found'});
+    bcrypt.compare(password, user.password, function(err, res){
+      if(!res) return cb(null, false, { message: 'Invalid Password' });
       let userDetails = {
         email: user.email,
-        username: user.username,
+       // firstname : user.firstname,
+        //lastname : user.lastname,
+        //phone : user.phone,
         id: user.id
       };
-      return cb(null, userDetails, {message: 'Login Succesful'});
+      return cb(null, userDetails, { message: 'Login Succesful'});
     });
   });
 }));
