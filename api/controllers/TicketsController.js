@@ -136,15 +136,15 @@
 				}, function(err, event) {
 					if (err) {
 						sails.log('There was an error contacting the Calendar service: ' + err);
-						return;
+						return res.send(500, 'didnt work');
 					}
-					sails.log('Event created: %s', event.htmlLink);
-					res.redirect("/tickets/list_waiting");
+					console.log('Event created: %s', event.htmlLink);
 				});
+        res.redirect("/tickets/list_waiting");
 
-			};
-			 			
- 		
+      };
+
+
  		});
  		return false;
  	},
@@ -152,14 +152,14 @@
  		Ticket.update({id: req.params.id}, {admin_comment:req.body.admin_comment, status: "Denied"}).exec(function (err) {
  			if (err)
  				res.send(500, "Internal problem error : the ticket has not been responding" );
- 					
+
 	 			res.redirect("/tickets/list_waiting");
 			 		});
 			 		return false;
  	},
  	calendar: function(req, res) {
 
- 
+
 
 /**
  * Lists the next 10 events on the user's primary calendar.

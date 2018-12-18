@@ -23,7 +23,7 @@
     image: {
         type: "ref",
         columnType: "bytea",
-        required : true,
+        required : false,
     },
     status: {
         type: "string",
@@ -31,7 +31,7 @@
     },
     tag: {
         type: "string",
-        required: true,
+        required: false,
         unique: true
     },
     meeting_date: {

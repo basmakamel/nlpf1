@@ -22,7 +22,6 @@ module.exports = {
       where: {email: client},
       select: ['firstname', 'lastname', 'email']
     });
-    console.log("2" + clientdb.length);
     if (clientdb.length == 1) {
       res.view("pages/fill_ticket/form",{email: clientdb[0].email, firstname :clientdb[0].firstname, lastname : clientdb[0].lastname});
       res.end();
@@ -35,10 +34,11 @@ module.exports = {
   newTicket : async function(req, res)
   {
     //console.log('here');
-    console.log(req.param('email'));
+    var tmp = new Date(Date.now()).toLocaleString();
+    console.log(req.body);
 
     var addTicketQuery = "INSERT into ticket VALUES (default, default, default,\'" + req.param('email') +"\',\'"+ req.param('address')+"\',\'"+
-    req.param('direction')+"\', null, \'Waiting\', default)";
+    req.param('direction')+"\', null, \'Waiting\', \'Ref-" + tmp +"\')";
     var executeAddTicket = await sails.sendNativeQuery(addTicketQuery);
     return res.view('pages/fill_ticket/new', {dataF : req.param('email')});
   }
