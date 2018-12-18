@@ -41,7 +41,7 @@
  	},
  	accept: function(req, res) {
  		sails.log(req.body);
- 		Ticket.update({id: req.params.id}, {admin_comment:req.body.admin_comment, status: "Accepted"}).exec(function (err) {
+ 		Ticket.update({id: req.params.id}, {admin_comment:req.body.admin_comment, status: "Accepted", meeting_date: req.body.date, meeting_time_start: req.body.time_start, meeting_time_end : req.body.time_end}).exec(function (err) {
  			if (err)
  				res.send(500, "Internal problem error : the ticket has not been responding" );
  			const fs = require('fs');
@@ -112,10 +112,6 @@
 			 	});
 			 }
 			function  createEvent(auth) {
-				sails.log(req.body.time_start);
-				sails.log(req.body.time_end);
-				sails.log(req.body.mail);
-				sails.log(req.body.address);
 				var event = {
 					'summary': 'Bob graffiti',
 					'location': req.body.address,
@@ -124,11 +120,11 @@
 					{'email': req.body.mail}
 					],
 					'start': {
-						'dateTime': req.body.date_start + 'T'+req.body.time_start+':00+01:00',
+						'dateTime': req.body.date + 'T'+req.body.time_start+':00+01:00',
 						'timeZone': 'Europe/Paris',
 					},
 					'end': {
-						'dateTime': req.body.date_end + 'T'+req.body.time_end+':00+01:00',
+						'dateTime': req.body.date + 'T'+req.body.time_end+':00+01:00',
 						'timeZone': 'Europe/Paris',
 					}
 				}

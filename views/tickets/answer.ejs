@@ -30,17 +30,21 @@
     </div>
 
     <div class="form-group">
-        <label for="body">Date de début de rendez-vous</label>
-        <input type="date" name="date_start">
+        <label for="body">Date du rendez-vous</label>
+        <input type="date" name="date">
     </div>
-    <input type="time" name="time_start">
     <div class="form-group">
-        <label for="body">Date de fin de rendez-vous</label>
-        <input type="date" name="date_end">
+        <label for="body">Heure de début de rendez-vous</label>
+        <input type="time" name="time_start">
+    </div>
+    <div class="form-group">
+        <label for="body">Heure de fin de rendez-vous</label>
         <input type="time" name="time_end">
     </div>
-
-    <<iframe src="https://calendar.google.com/calendar/embed?showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=h8bi0j1u9660pfd7g77sn6b1hg%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=Europe%2FParis" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <div class="form-group">
+        <iframe src="https://calendar.google.com/calendar/b/1/embed?showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;hl=fr&amp;bgcolor=%23FFFFFF&amp;src=bobgraffiti.sigl%40gmail.com&amp;color=%231B887A&amp;ctz=Europe%2FParis" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    
 
     <input type="submit" formaction="/tickets/accept/<%= ticket.id %>" value="Accepter" class="btn btn-success">
     <input type="submit" formaction="/tickets/deny/<%= ticket.id %>" value="Refuser" class="btn btn-danger">
