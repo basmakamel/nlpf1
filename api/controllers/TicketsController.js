@@ -136,13 +136,13 @@
 				}, function(err, event) {
 					if (err) {
 						sails.log('There was an error contacting the Calendar service: ' + err);
-						return res.send(500, 'didnt work');
+						return;
 					}
-					console.log('Event created: %s', event.htmlLink);
+					sails.log('Event created: %s', event.htmlLink);
+					res.redirect("/tickets/list_waiting");
 				});
-        res.redirect("/tickets/list_waiting");
 
-      };
+			};
 
 
  		});

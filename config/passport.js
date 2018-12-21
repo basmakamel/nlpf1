@@ -10,7 +10,6 @@ passport.deserializeUser(function(id, cb){
   });
 });
 passport.use(new LocalStrategy({
-  returnURL: 'http://example.net:3003/api/auth/google/return',
   usernameField: 'email',
   passportField: 'password'
 }, function(username, password, cb){

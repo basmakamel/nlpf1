@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th>Tag</th>
-            <th>Liste des tickets en attentes</th>
+            <th>Waiting tickets</th>
             <th></th>
         </tr>
     </thead>
@@ -14,7 +14,7 @@
                 <td><%= ticket.status%></td>
                 <td>
                     <form class="d-inline" action="/tickets/answer/<%= ticket.id %>" method="post">
-                        <input type="submit" value="Répondre" class="btn btn-warning">
+                        <input type="submit" value="Resolve" class="btn btn-warning">
                     </form>
                 </td>
             </tr>

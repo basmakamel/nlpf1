@@ -29,6 +29,7 @@
    'GET /appointments' : {view : 'appointments'},
   'GET /login': { view: 'login' },
   'POST /login': 'AuthController.login',
+   'POST /register': 'AuthController.register',
   '/logout': 'AuthController.logout',
   'GET /register': { view: 'register' },
 
@@ -61,7 +62,7 @@
     skipAssets: false
   },
 
-   'POST /client': {view: 'login'},
+    //'POST /client': {view: 'login'},
  // 'GET /hello' : 'HelloController.hellos',
   //'GET /book_appt:client?' : {view: 'pages/fill_ticket/form'},
    'GET /book_appt:client?' : 'fill_ticket/FormController.init',

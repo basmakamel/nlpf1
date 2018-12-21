@@ -23,5 +23,15 @@ module.exports = {
   logout: function(req, res) {
     req.logout();
     res.redirect('/');
+  },
+  register: async function (req, res) {
+    Client.create(req.body).exec(function(err, result){
+      if (err) {
+        return res.redirect('/register');
+      }
+      return res.redirect('/login');
+    });
+
+
   }
 };

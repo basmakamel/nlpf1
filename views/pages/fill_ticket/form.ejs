@@ -27,33 +27,27 @@ For more information, see:
       <form class="ajax-form" @submit.prevent="submit()" @keydown.meta.enter="keydownMetaEnter()" action="newTicket" method="post">
         <div class="form-group">
           <label for="first-name">First name</label>
-          <input class="form-control" value="<%=firstname%>" id="first-name" type="text"  :class="[formErrors.firstName ? 'is-invalid' : '']" v-model.trim="formData.firstName"  name="firstName" focus-first readonly>
-          <div class="invalid-feedback" v-if="formErrors.firstName">Please enter your first name.</div>
+          <input class="form-control" value="<%=firstname%>" id="first-name" type="text" name="firstName" focus-first readonly>
         </div>
         <div class="form-group">
           <label for="last-name">Last name</label>
-          <input class="form-control" id="last-name" value="<%=lastname%>" type="text"  :class="[formErrors.lastName ? 'is-invalid' : '']" v-model.trim="formData.lastName"autocomplete="name" name="lastName "focus-first readonly>
-          <div class="invalid-feedback" v-if="formErrors.lastName">Please enter your last name.</div>
+          <input class="form-control" id="last-name" value="<%=lastname%>" type="text" autocomplete="name" name="lastName "focus-first readonly>
         </div>
         <div class="form-group">
           <label for="email-address">Email address*</label>
           <input class="form-control" id="email-address" value="<%=email%>" type="email" required name="email" readonly>
-          <span class="error" >Please enter a valid email address.</span>
         </div>
         <div class="form-group">
           <label for="phone">Phone #</label>
-          <input class="form-control" id="phone" type="text"  :class="[formErrors.phone ? 'is-invalid' : '']" v-model.trim="formData.phone" placeholder="0612348790" name="phone" focus-first>
-          <div class="invalid-feedback" v-if="formErrors.phone">Please enter your phone number.</div>
+          <input class="form-control" id="phone" type="text" placeholder="0612348790" name="phone" focus-first>
         </div>
         <div class="form-group">
           <label for="address">Address</label>
-          <input class="form-control" id="address" type="text"  :class="[formErrors.address ? 'is-invalid' : '']" v-model.trim="formData.address" placeholder="12 rue Leclerc 75001 Paris" name="address" focus-first>
-          <div class="invalid-feedback" v-if="formErrors.address">Please enter your address.</div>
+          <input class="form-control" id="address" type="text" placeholder="12 rue Leclerc 75001 Paris" name="address" focus-first>
         </div>
         <div class="form-group">
-          <label for="direction">Direction</label>
-          <input class="form-control" id="direction" type="text"  :class="[formErrors.direction ? 'is-invalid' : '']" v-model.trim="formData.direction" placeholder="North" name="direction" focus-first>
-          <div class="invalid-feedback" v-if="formErrors.direction">Please enter your phone number.</div>
+          <label for="direction">Compass direction(e.g: North, North East etc.)</label>
+          <input class="form-control" id="direction" type="text" name="direction" pattern="North|West|South|East|North West|North East|South East|South West" focus-first>
         </div>
         <div class="form-group">
           <button @click="click()" type="submit" class="btn ajax-button" :class="[syncing ? 'syncing' : '']">
